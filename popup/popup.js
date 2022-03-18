@@ -1,5 +1,20 @@
 let tasks = [];
 
+function updateTime() {
+  const time = document.getElementById("time");
+  chrome.storage.local.get(["timer"], (res) => {
+    const minutes = `${25 - Math.ceil(res.timer / 60)}`.padStart(2, "0");
+    let seconds = "00";
+    if (res.timer % 60 != 0) {
+      seconds = `${60 - (res.timer % 60)}`.padStart(2, "0");
+    }
+    time.textContent = `${minutes}:${seconds}`;
+  });
+}
+
+updateTime();
+setInterval(updateTime, 1000);
+
 const startTimerBtn = document.getElementById("start-timer-btn");
 startTimerBtn.addEventListener("click", () => {
   chrome.storage.local.get(["isRunning"], (res) => {
