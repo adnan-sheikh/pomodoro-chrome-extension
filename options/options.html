@@ -9,8 +9,11 @@
   </head>
   <body>
     <h1>Pomodoro Timer Extension</h1>
-    <input type="number" min="1" max="60" />
-    <button>Save Options</button>
+    <label for="time-option">
+      Default time in minutes (1 - 60):
+      <input id="time-option" type="number" min="1" max="60" value="25" />
+    </label>
+    <button id="save-btn">Save Options</button>
     <script src="options.js"></script>
   </body>
 </html>
