@@ -1,0 +1,16 @@
+body {
+  height: 400px;
+  width: 300px;
+  background: indianred;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  background: white;
+  padding: 10px 0;
+  
+}
