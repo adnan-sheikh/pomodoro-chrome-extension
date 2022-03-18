@@ -13,6 +13,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
             body: "25 Minutes has passed!",
             icon: "icon.png",
           });
+          timer = 0;
+          isRunning = false;
         }
         chrome.storage.local.set({ timer, isRunning });
       }
