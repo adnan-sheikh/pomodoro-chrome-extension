@@ -44,8 +44,6 @@ chrome.storage.sync.get(["tasks"], (res) => {
 const taskContainer = document.getElementById("task-container");
 const addTaskBtn = document.getElementById("add-task-btn");
 
-const tasksValue = document.getElementById("tasks-value");
-
 addTaskBtn.addEventListener("click", addTask);
 
 function saveTasks() {
@@ -66,6 +64,7 @@ function renderTask(taskNum) {
   textInput.value = tasks[taskNum];
   textInput.type = "text";
   textInput.placeholder = "Enter a task...";
+  textInput.className = "text-input";
 
   textInput.addEventListener("change", () => {
     tasks[taskNum] = textInput.value;
@@ -75,6 +74,7 @@ function renderTask(taskNum) {
   const deleteBtn = document.createElement("input");
   deleteBtn.type = "button";
   deleteBtn.value = "X";
+  deleteBtn.className = "delete-btn";
 
   deleteBtn.addEventListener("click", () => {
     deleteTask(taskNum);
