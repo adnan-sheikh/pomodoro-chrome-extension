@@ -1,5 +1,23 @@
 let tasks = [];
 
+const startTimerBtn = document.getElementById("start-timer-btn");
+startTimerBtn.addEventListener("click", () => {
+  chrome.storage.local.get(["isRunning"], (res) => {
+    chrome.storage.local.set({ isRunning: !res.isRunning }, () => {
+      startTimerBtn.textContent = !res.isRunning
+        ? "Pause Timer"
+        : "Start Timer";
+    });
+  });
+});
+
+const resetTimerBtn = document.getElementById("reset-timer-btn");
+resetTimerBtn.addEventListener("click", () => {
+  chrome.storage.local.set({ isRunning: false, timer: 0 }, () => {
+    startTimerBtn.textContent = "Start Timer";
+  });
+});
+
 chrome.storage.sync.get(["tasks"], (res) => {
   tasks = res.tasks ? res.tasks : [];
   renderTasks();
@@ -7,7 +25,6 @@ chrome.storage.sync.get(["tasks"], (res) => {
 
 const taskContainer = document.getElementById("task-container");
 const addTaskBtn = document.getElementById("add-task-btn");
-const startTimerBtn = document.getElementById("start-timer-btn");
 
 const tasksValue = document.getElementById("tasks-value");
 
