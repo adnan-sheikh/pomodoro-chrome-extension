@@ -1,0 +1,53 @@
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+main {
+  width: max-content;
+  height: min-content;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: indianred;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+label {
+  font-size: 1rem;
+}
+
+input {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: indianred;
+  font-weight: bold;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#save-btn {
+  border: none;
+  margin-top: 16px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: indianred;
+  font-weight: bold;
+  cursor: pointer;
+}
